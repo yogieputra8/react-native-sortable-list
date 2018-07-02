@@ -1,7 +1,9 @@
 import React, {Component, cloneElement} from 'react';
 import PropTypes from 'prop-types';
-import {Animated, PanResponder, StyleSheet} from 'react-native';
+import {Animated, PanResponder, ViewPropTypes, StyleSheet} from 'react-native';
 import {shallowEqual} from './utils';
+
+var ViewStylePropTypes = ViewPropTypes ? ViewPropTypes.style : View.propTypes.style;
 
 export default class Row extends Component {
   static propTypes = {
@@ -9,7 +11,7 @@ export default class Row extends Component {
     animated: PropTypes.bool,
     disabled: PropTypes.bool,
     horizontal: PropTypes.bool,
-    style: Animated.View.propTypes.style,
+    style: Animated.ViewStylePropTypes,
     location: PropTypes.shape({
       x: PropTypes.number,
       y: PropTypes.number,
